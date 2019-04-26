@@ -81,11 +81,9 @@ class _ProductsPageState extends State<ProductsPage>
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
                   CircleAvatar(
-                    child: Text("H"),
+                    backgroundImage: AssetImage('images/profile.jpg'),
                   ),
-                  FlutterLogo(
-                    size: 50,
-                  ),
+                  Image.asset('images/dots.png', width: 50, height: 50, fit: BoxFit.cover,),
                   Icon(Icons.shopping_cart),
                 ],
               ),

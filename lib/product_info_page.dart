@@ -122,6 +122,12 @@ class _ProductInfoPageState extends State<ProductInfoPage> {
           "Overview",
           style: titleTextStyle,
         ),
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(right: 32.0),
+            child: Icon(Icons.shopping_cart, color: Colors.black),
+          ),
+        ],
       ),
       body: Column(
         mainAxisSize: MainAxisSize.min,
