@@ -3,6 +3,7 @@ import 'model/inventory.dart';
 import 'product_grid.dart';
 import 'styles.dart';
 import 'product_info_page.dart';
+import 'package:flutter/services.dart';
 
 class ProductsPage extends StatefulWidget {
   final Inventory inventory;
@@ -128,6 +129,7 @@ class _ProductsPageState extends State<ProductsPage>
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
     return Scaffold(
       backgroundColor: Colors.white,
       body: Column(
@@ -163,7 +165,9 @@ class _ProductsPageState extends State<ProductsPage>
                                 context,
                                 MaterialPageRoute(
                                   fullscreenDialog: false,
-                                  builder: (_) => ProductInfoPage(snapshot.data.products[idx]),
+                                  builder: (_) => ProductInfoPage(
+                                        snapshot.data.products[idx],
+                                      ),
                                 ),
                               );
                             },

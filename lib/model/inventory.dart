@@ -4,6 +4,8 @@ class Product {
   final String productName;
   final String price;
   final String imagePath;
+  final String tagLine;
+  final String description;
   final int purchases;
   final int year;
 
@@ -13,16 +15,21 @@ class Product {
     this.imagePath = "",
     this.purchases = 0,
     this.year = 2019,
+    this.tagLine = "",
+    this.description = "",
   });
 }
 
 class Inventory {
   List<Product> products;
+  static bool hasLoadedAtLeastOnce = false;
 
   get length => products.length;
 
   Future<Inventory> simulateServerRequest(String filter) {
-    return Future.delayed(Duration(seconds: 2), () {
+    return Future.delayed(Duration(milliseconds: (hasLoadedAtLeastOnce) ? 500 : 3500), () {
+      hasLoadedAtLeastOnce = true;
+
       products.clear();
     
       products
@@ -33,6 +40,8 @@ class Inventory {
             imagePath: "images/google_home.png",
             purchases: 9000,
             year: 2016,
+            tagLine: "Hands-free help from the Google Assistant.",
+            description: "Get answers, play songs, tackle your day, enjoy your entertainment, and control your smart devices.",
           ),
         )
         ..add(
@@ -42,6 +51,8 @@ class Inventory {
             imagePath: "images/google_clips.png",
             purchases: 1,
             year: 2018,
+            tagLine: "Wireless Smart Camera",
+            description: "A hands-free camera built with Google’s smarts that lets you effortlessly capture and view more of the spontaneous moments with the people and pets who matter to you.",
           ),
         )
         ..add(
@@ -60,6 +71,8 @@ class Inventory {
             imagePath: "images/google_daydream.png",
             purchases: 200,
             year: 2016,
+            tagLine: "Dream with your eyes open",
+            description: "Daydream is a comfortable, easy-to-use headset designed with choice in mind."
           ),
         );
 

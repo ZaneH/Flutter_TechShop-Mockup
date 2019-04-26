@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'model/inventory.dart';
 import 'styles.dart';
+import 'package:flutter/services.dart';
 
 class ProductInfoPage extends StatefulWidget {
   final Product displayProduct;
@@ -60,10 +61,52 @@ class _ProductInfoPageState extends State<ProductInfoPage> {
     );
   }
 
+  _buildHeartButton() {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(100),
+        color: Color(0xfff1f0f6).withOpacity(1),
+      ),
+      padding: EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+      child: Icon(Icons.favorite_border),
+    );
+  }
+
+  _buildAddToCartButton() {
+    return Expanded(
+      child: Container(
+        decoration: BoxDecoration(
+          color: Color(0xff5fc9d7),
+          borderRadius: BorderRadius.circular(100),
+        ),
+        padding: EdgeInsets.symmetric(horizontal: 24, vertical: 24),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Icon(
+              Icons.shopping_cart,
+              color: Colors.white,
+              size: 16,
+            ),
+            SizedBox(
+              width: 18,
+            ),
+            Text(
+              "ADD TO CART",
+              style: TextStyle(fontSize: 16, color: Colors.white),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
     return Scaffold(
       appBar: AppBar(
+        brightness: Brightness.light,
         backgroundColor: Color(0xffe5e5e3),
         elevation: 0,
         leading: GestureDetector(
@@ -134,7 +177,9 @@ class _ProductInfoPageState extends State<ProductInfoPage> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
-                    SizedBox(height: 8,),
+                    SizedBox(
+                      height: 8,
+                    ),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
@@ -149,17 +194,39 @@ class _ProductInfoPageState extends State<ProductInfoPage> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 24,),
+                    SizedBox(
+                      height: 24,
+                    ),
                     Text(
-                      "Hands-free help from the Google Assistant.",
+                      widget.displayProduct.tagLine,
                       style: infoSemibold,
                     ),
-                    SizedBox(height: 24,),
+                    SizedBox(
+                      height: 24,
+                    ),
                     Text(
-                      "Get answers, play songs, tackle your day, enjoy your entertainment, and control your smart devices.",
-                      maxLines: 2,
+                      widget.displayProduct.description,
+                      maxLines: 4,
                       overflow: TextOverflow.ellipsis,
                       style: infoText,
+                    ),
+                    Expanded(
+                      child: Container(),
+                    ),
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        _buildHeartButton(),
+                        SizedBox(
+                          width: 24,
+                        ),
+                        _buildAddToCartButton(),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 8,
                     ),
                   ],
                 ),
