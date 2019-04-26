@@ -176,7 +176,7 @@ class _ProductsPageState extends State<ProductsPage>
                               child: Stack(
                                 children: <Widget>[
                                   Container(
-                                    color: Color(0xffe5e5e3),
+                                    color: (idx % 3 == 0) ? Color(0xffe5e5e3) : Color(0xffededed),
                                     height: 320,
                                     width:
                                         MediaQuery.of(context).size.width / 2.2,
