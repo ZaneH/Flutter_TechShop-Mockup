@@ -1,16 +1,6 @@
-# tech_shop
+# Flutter TechShop
 
-A new Flutter project.
+[Design credit (here)](https://www.instagram.com/p/BqKVXMhBQ7S/?utm_source=ig_share_sheet&igshid=1fu1zik969e50)
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.io/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.io/docs/cookbook)
-
-For help getting started with Flutter, view our 
-[online documentation](https://flutter.io/docs), which offers tutorials, 
-samples, guidance on mobile development, and a full API reference.
+# Preview
+![Demo GIF](https://raw.githubusercontent.com/ZaneH/Flutter_TechShop-Mockup/master/app.gif)
